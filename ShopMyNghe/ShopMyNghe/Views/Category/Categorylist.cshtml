@@ -1,0 +1,33 @@
+﻿@model IEnumerable<ShopMyNghe.Models.Category>
+
+@{
+    ViewBag.Title = "Categorylist";
+    Layout = "~/Views/Shared/_Layout4.cshtml";
+}
+
+<h2>Categorylist</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateCategory", "Category", new { @class = "btn", style = "background-color: rgb(252, 150, 112); border-radius: 10px;" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "EditCategory", "Category",new { id = item.category_id }, new { @class = "btn", style = "background-color: rgb(252, 150, 112); border-radius: 10px;" }) |
+            @Html.ActionLink("Xóa", "DeleteCategory", "Category", new { id = item.category_id }, new { @class = "btn", style = "background-color: rgb(252, 150, 112); border-radius: 10px;" })
+        </td>
+    </tr>
+}
+
+</table>

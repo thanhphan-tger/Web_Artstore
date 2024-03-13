@@ -1,0 +1,73 @@
+﻿@{
+    ViewBag.Title = "ViewCart";
+    Layout = "~/Views/Shared/_Layout4.cshtml";
+}
+
+@using ShopMyNghe.Models;
+@model List<Cart_Session>
+
+<div class="container">
+    <h2 class="text-center" style="font-weight: bold; color: rgb(252, 150, 112);">ViewCart</h2>
+    <table class="table">
+        <tr style="font-weight: bold;">
+            <th>
+                Mã sản phẩm
+            </th>
+            <th>
+                Tên sản phẩm
+            </th>
+            <th>
+                Ảnh
+            </th>
+            <th>
+                Giá
+            </th>
+            <th>
+                Số lượng
+            </th>
+            <th>
+                Tổng tiền
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sproduct_id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sproduct_name)
+                </td>
+                <td @*style="width: 50px;"*@>
+                    <img src="@Url.Content("~/img/ProIMG/" + item.sproduct_image)" style="margin:auto; width: 100px;" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.dproduct_price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.isoLuong)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.dtTien) $
+                </td>
+                <td>
+                    @Html.ActionLink("Chi Tiết", "ProductDetails", "Product", new { id = item.sproduct_id }, new { @class = "btn", style = "background-color: rgb(252, 150, 112); border-radius: 10px;" })
+                </td>
+                <td>
+                    @Html.ActionLink("Xóa", "DeleteProduct", "Product", new { id = item.sproduct_id }, new { @class = "btn", style = "background-color: rgb(252, 150, 112); border-radius: 10px; width: 70px;" })
+                </td>
+            </tr>
+        }
+        <tr>
+            <td colspan="4" style="color: red;">Total</td>
+            <td style="color: red;">@ViewBag.CountCart</td>
+            <td style="color: red;">@string.Format("{0:#,##}", @ViewBag.SumCart) $</td>
+            <td><a href="/Cart/ClearCart" class="btn" style="background-color: rgb(172, 150, 112); border-radius: 10px; width: 60px;">Clear</a></td>
+            <td colspan="2">
+                @Html.ActionLink("Order", "#", "Cart", new { @class = "btn", style = "background-color: rgb(172, 150, 112); border-radius: 10px; width: 60px;" })
+            </td>
+        </tr>
+    </table>
+</div>

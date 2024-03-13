@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SanPham" Class="DB_MyNgheDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=Tger\MSSQLTGER;Initial Catalog=SanPham;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="SanPhamConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="User">
+      <Column Name="user_id" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="username" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="password" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="phone" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="address" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="rights" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="User_Cart" Member="Carts" ThisKey="user_id" OtherKey="user_id" Type="Cart" />
+      <Association Name="User_Order" Member="Orders" ThisKey="user_id" OtherKey="user_id" Type="Order" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Cart_Items" Member="Cart_Items">
+    <Type Name="Cart_Item">
+      <Column Name="item_id" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="cart_id" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="product_id" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Cart_Cart_Item" Member="Cart" ThisKey="cart_id" OtherKey="cart_id" Type="Cart" IsForeignKey="true" />
+      <Association Name="Product_Cart_Item" Member="Product" ThisKey="product_id" OtherKey="product_id" Type="Product" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Carts" Member="Carts">
+    <Type Name="Cart">
+      <Column Name="cart_id" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="created_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="user_id" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Association Name="Cart_Cart_Item" Member="Cart_Items" ThisKey="cart_id" OtherKey="cart_id" Type="Cart_Item" />
+      <Association Name="User_Cart" Member="User" ThisKey="user_id" OtherKey="user_id" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Categories" Member="Categories">
+    <Type Name="Category">
+      <Column Name="category_id" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Association Name="Category_Product" Member="Products" ThisKey="category_id" OtherKey="category_id" Type="Product" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Order_Items" Member="Order_Items">
+    <Type Name="Order_Item">
+      <Column Name="item_id" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="order_id" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="product_id" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Order_Order_Item" Member="Order" ThisKey="order_id" OtherKey="order_id" Type="Order" IsForeignKey="true" />
+      <Association Name="Product_Order_Item" Member="Product" ThisKey="product_id" OtherKey="product_id" Type="Product" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orders" Member="Orders">
+    <Type Name="Order">
+      <Column Name="order_id" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="order_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="user_id" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="totalcost" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Association Name="Order_Order_Item" Member="Order_Items" ThisKey="order_id" OtherKey="order_id" Type="Order_Item" />
+      <Association Name="User_Order" Member="User" ThisKey="user_id" OtherKey="user_id" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Products" Member="Products">
+    <Type Name="Product">
+      <Column Name="product_id" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="price" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Images" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="category_id" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="source_id" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Association Name="Product_Cart_Item" Member="Cart_Items" ThisKey="product_id" OtherKey="product_id" Type="Cart_Item" />
+      <Association Name="Product_Order_Item" Member="Order_Items" ThisKey="product_id" OtherKey="product_id" Type="Order_Item" />
+      <Association Name="Category_Product" Member="Category" ThisKey="category_id" OtherKey="category_id" Type="Category" IsForeignKey="true" />
+      <Association Name="Source_Product" Member="Source" ThisKey="source_id" OtherKey="source_id" Type="Source" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sources" Member="Sources">
+    <Type Name="Source">
+      <Column Name="source_id" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Association Name="Source_Product" Member="Products" ThisKey="source_id" OtherKey="source_id" Type="Product" />
+    </Type>
+  </Table>
+</Database>

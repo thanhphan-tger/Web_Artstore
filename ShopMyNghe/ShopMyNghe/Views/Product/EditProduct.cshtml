@@ -1,0 +1,54 @@
+﻿@model ShopMyNghe.Models.Product
+
+@{
+    ViewBag.Title = "CreateProduct";
+    Layout = "~/Views/Shared/_Layout4.cshtml";
+}
+
+<div class="container mb-4 mt-2" style="width: 700px;">
+    <h2 class="text-center" style="font-weight: bold; color: rgb(252, 150, 112);">Edit Product</h2>
+    <hr />
+    <form action="/Product/EditProduct/@Model.product_id" method="post">
+        <input type="hidden" name="product_id" value="@Model.product_id" />
+        <div class="row">
+            <div class="col-md-6">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Name" value="@Model.name" />
+            </div>
+
+            <div class="col-md-6">
+                <label for="price">Price</label>
+                <input type="text" class="form-control" id="price" name="price" placeholder="Price" value="@Model.price" />
+            </div>
+
+            <div class="col-md-6">
+                <label for="description">Description</label>
+                <input type="text" class="form-control" id="description" name="description" placeholder="Description" value="@Model.description" />
+            </div>
+
+            @*<div class="col-md-6">
+                <label for="Images">Images</label>
+                <input type="file" name="fileupload" />
+                <img src="@Url.Content("~/img/ProIMG/" + Model.Images)" width="100px" class="mt-1"/>
+                @ViewBag.thongbao
+            </div>*@
+
+            <div class="col-md-6">
+                <label for="category_id">Category ID</label>
+                <input type="text" class="form-control" id="category_id" name="category_id" placeholder="Category ID" value="@Model.category_id" />
+            </div>
+
+            <div class="col-md-6">
+                <label for="source_id">Source ID</label>
+                <input type="text" class="form-control" id="source_id" name="source_id" placeholder="Source ID" value="@Model.source_id" />
+            </div>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn m-2" style="text-align: center; background-color: rgb(252, 150, 112); border-radius: 10px;">Save</button>
+        </div>
+    </form>    
+    <div>
+        <a href="/Home/Index" class="btn" , style="text-align: center; background-color: rgb(252, 150, 112); border-radius: 10px;">Back</a>
+        @*@Html.ActionLink("Back", "Index", "Home", new { @class="btn", style="text-align: center; background-color: rgb(252, 150, 112); border-radius: 10px;"})*@
+    </div>  
+</div>

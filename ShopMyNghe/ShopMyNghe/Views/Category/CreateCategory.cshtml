@@ -1,0 +1,42 @@
+﻿@model ShopMyNghe.Models.Category
+
+@{
+    ViewBag.Title = "CreateCategory";
+    Layout = "~/Views/Shared/_Layout4.cshtml";
+}
+
+<div class="container mt-3" style="width: 400px;">
+    <h2 tyle="text-align: center;">Create Category</h2>
+
+    @using (Html.BeginForm("CreateCategory", "Category", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.category_id)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.category_id)
+                @Html.ValidationMessageFor(model => model.category_id)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.name)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.name)
+                @Html.ValidationMessageFor(model => model.name)
+            </div>
+
+            <p class="text-center">
+                <input type="submit" value="Create" class="mt-2 btn" style="background-color: rgb(252, 150, 112);">
+            </p>
+        </fieldset>
+    }
+
+    <div>
+        <a href="/Category/Categorylist" class="btn" style="background-color: rgb(252, 150, 112);">Back</a>
+    </div>
+</div>

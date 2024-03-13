@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 11.5" name="DB_MyNghe">
+  <DataContextMoniker Name="/DB_MyNgheDataContext" />
+  <nestedChildShapes>
+    <classShape Id="63bda2ad-9291-4e73-8df4-7c291b40bffe" absoluteBounds="0.75, 7, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/DB_MyNgheDataContext/User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c7a12e15-ead4-4848-8aec-6428ee9e0023" absoluteBounds="0.765, 7.46, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="60cb1c9b-f56c-4137-8d93-f23e701cd0a0" absoluteBounds="6.25, 3.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DB_MyNgheDataContext/Cart_Item" />
+      <nestedChildShapes>
+        <elementListCompartment Id="48272eea-e257-4e3b-b22b-7a0bae4ad896" absoluteBounds="6.265, 4.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1938249b-3c4f-4798-aaad-862b8f68c4d5" absoluteBounds="3.5, 9.875, 2, 1.3862939453124987">
+      <DataClassMoniker Name="/DB_MyNgheDataContext/Cart" />
+      <nestedChildShapes>
+        <elementListCompartment Id="dbd8a222-3404-4965-8459-f47feab3440c" absoluteBounds="3.515, 10.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="566d412e-4f6b-4a80-a090-0f32ab7cb457" absoluteBounds="0.75, 4, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/DB_MyNgheDataContext/Category" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3ff4490f-9c2b-4cbf-883f-3dd9e87e3ab0" absoluteBounds="0.765, 4.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8a791efe-b914-4ce6-9f40-af53cd531a99" absoluteBounds="6.25, 0.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DB_MyNgheDataContext/Order_Item" />
+      <nestedChildShapes>
+        <elementListCompartment Id="508f2491-cfaf-48b0-b68b-b36f0e0b363e" absoluteBounds="6.265, 1.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="826505c4-5afc-4b8f-b96d-10ee52200ab6" absoluteBounds="3.5, 7.25, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DB_MyNgheDataContext/Order" />
+      <nestedChildShapes>
+        <elementListCompartment Id="be8b4183-5e4f-4362-9a22-132daa3bdab6" absoluteBounds="3.515, 7.71, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3bb63747-141e-4538-bfe6-5a37e86eea59" absoluteBounds="3.5, 3.5, 2, 2.1554996744791661">
+      <DataClassMoniker Name="/DB_MyNgheDataContext/Product" />
+      <nestedChildShapes>
+        <elementListCompartment Id="61ee4cc0-ed29-4124-bdbf-72e5162e7eb5" absoluteBounds="3.515, 3.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="51695be6-557c-4473-98e7-7764e259a6b4" absoluteBounds="0.75, 2, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/DB_MyNgheDataContext/Source" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9d171850-9d6e-4ba1-98a3-a3db584f3199" absoluteBounds="0.765, 2.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 10.5681469726562); (7.25 : 10.5681469726562); (7.25 : 5.32859537760417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DB_MyNgheDataContext/Cart/Cart_Cart_Item" />
+      <nodes>
+        <classShapeMoniker Id="1938249b-3c4f-4798-aaad-862b8f68c4d5" />
+        <classShapeMoniker Id="60cb1c9b-f56c-4137-8d93-f23e701cd0a0" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.75 : 9.15549967447917); (1.75 : 10.5681469726562); (3.5 : 10.5681469726562)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DB_MyNgheDataContext/User/User_Cart" />
+      <nodes>
+        <classShapeMoniker Id="63bda2ad-9291-4e73-8df4-7c291b40bffe" />
+        <classShapeMoniker Id="1938249b-3c4f-4798-aaad-862b8f68c4d5" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 7.25); (5.875 : 6.875); (5.875 : 1.53929768880208); (6.25 : 1.53929768880208)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DB_MyNgheDataContext/Order/Order_Order_Item" />
+      <nodes>
+        <classShapeMoniker Id="826505c4-5afc-4b8f-b96d-10ee52200ab6" />
+        <classShapeMoniker Id="8a791efe-b914-4ce6-9f40-af53cd531a99" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 8.03929768880208); (3.5 : 8.03929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DB_MyNgheDataContext/User/User_Order" />
+      <nodes>
+        <classShapeMoniker Id="63bda2ad-9291-4e73-8df4-7c291b40bffe" />
+        <classShapeMoniker Id="826505c4-5afc-4b8f-b96d-10ee52200ab6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 4.53929768880208); (5.79166666666667 : 4.53929768880208 : JumpStart); (5.95833333333333 : 4.53929768880208 : JumpEnd); (6.25 : 4.53929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DB_MyNgheDataContext/Product/Product_Cart_Item" />
+      <nodes>
+        <classShapeMoniker Id="3bb63747-141e-4538-bfe6-5a37e86eea59" />
+        <classShapeMoniker Id="60cb1c9b-f56c-4137-8d93-f23e701cd0a0" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.5 : 3.5); (4.5 : 1.96519903320312); (5.79166666666667 : 1.96519903320312 : JumpStart); (5.95833333333333 : 1.96519903320312 : JumpEnd); (6.25 : 1.96519903320312)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DB_MyNgheDataContext/Product/Product_Order_Item" />
+      <nodes>
+        <classShapeMoniker Id="3bb63747-141e-4538-bfe6-5a37e86eea59" />
+        <classShapeMoniker Id="8a791efe-b914-4ce6-9f40-af53cd531a99" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 4.59699625651042); (3.5 : 4.59699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DB_MyNgheDataContext/Category/Category_Product" />
+      <nodes>
+        <classShapeMoniker Id="566d412e-4f6b-4a80-a090-0f32ab7cb457" />
+        <classShapeMoniker Id="3bb63747-141e-4538-bfe6-5a37e86eea59" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 2.59699625651042); (3.9687475 : 2.59699625651042); (3.9687475 : 3.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DB_MyNgheDataContext/Source/Source_Product" />
+      <nodes>
+        <classShapeMoniker Id="51695be6-557c-4473-98e7-7764e259a6b4" />
+        <classShapeMoniker Id="3bb63747-141e-4538-bfe6-5a37e86eea59" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

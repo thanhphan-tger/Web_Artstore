@@ -1,0 +1,27 @@
+﻿@model ShopMyNghe.Models.Category
+
+@{
+    ViewBag.Title = "DeleteCategory";
+    Layout = "~/Views/Shared/_Layout4.cshtml";
+}
+
+<h2>Delete Category</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Category</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.name)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p class="text-center">
+        <input type="submit" value="Delete" style="text-align: center; background-color: rgb(252, 150, 112); border-radius: 10px;"/>
+    </p>
+    <a href="/Category/Categorylist" class="btn" style="text-align: center; background-color: rgb(252, 150, 112); border-radius: 10px;">Back</a>
+}

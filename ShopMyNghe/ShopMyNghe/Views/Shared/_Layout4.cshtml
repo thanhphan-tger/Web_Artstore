@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="~/img/favicon-16x16.png">
+    @*<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">*@
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/49d6f8c7f6.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Akshar:wght@300;400&family=Roboto:wght@300&family=Tapestry&family=Updock&family=Water+Brush&display=swap" rel="stylesheet">
+    <title>@ViewBag.Title</title>
+</head>
+<body style="font-family: Arial, Helvetica, sans-serif;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding: 0;">
+        <div class="container-fluid">
+            <a class="navbar-brand" style="color: rgb(252, 150, 112); font-size: 25px; font-weight: bold;" href="/Home/Index">TgerPhrey</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ms-auto">
+                    @{
+                        if (Session["User"] == null)
+                        {
+                            <a class="nav-link" href="/User/Login" style="border-radius: 15px;"><span><i class="fa-regular fa-circle-user"></i></span> Đăng nhập</a>
+                            <a class="nav-link" href="/User/Register" style="border-radius: 15px;"><span><i class="fa-solid fa-unlock-keyhole"></i></span> Đăng ký</a>
+                        }
+                        else
+                        {
+                            Html.RenderAction("RenderUserName", "User");
+                            <a class="nav-link" href="/User/Logout" style="border-radius: 15px;"><span><i class="fa-solid fa-right-from-bracket"></i></span> Logout</a>
+                        }
+                    }
+                    <a class="nav-link" href="#">Hỗ trợ</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col d-flex justify-content-center" style="text-align:center;">
+                <a href="/Home/Index"><img src="~/img/Logo.png" alt="Tger Shoes" style="width: 12%;"></a>
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col d-flex justify-content-center">
+                <a href="/Cart/ViewCart" class="me-3" style="color: rgb(230, 149, 0);"><i class="fas fa-shopping-basket"></i></a>
+                <a href="/Category/Categorylist" style="color: rgb(230, 149, 0);"><i class="far fa-heart"></i></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <form class="d-flex" action="/Product/ProductsByCategory">
+                    <input class="form-control me-2" type="search" id="search" name="search" value="@ViewBag.Search" placeholder="Search">
+                    <button class="btn btn-outline-success" type="submit">
+                        <i class="fas fa-search" style="color: rgb(153, 76, 0);"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <hr style="width: auto; margin: 2px 0px;">
+    </div>
+
+    @{
+        Html.RenderAction("RenderMenu", "Home");
+    }
+
+    <div class="container body-content">
+        @RenderBody()
+
+        
+    </div>
+
+    <hr style="width: auto; margin: 5px 80px;">
+
+    <footer>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-3">
+                    <ul style="list-style-type: none;">
+                        <li><h5 style="text-align:center;font-weight:bold;">GIỚI THIỆU</h5></li>
+                        <li style="padding-left: 80px;">
+                            &#10157;
+                            <a style="text-decoration: none; color: black;" href="#">Về TgerPhrey</a>
+                        </li>
+                        <li style="padding-left: 80px;">
+                            &#10157;
+                            <a style="text-decoration: none; color: black;" href="#">Tin tức</a>
+                        </li>
+                        <li style="padding-left: 80px;">
+                            &#10157;
+                            <a style="text-decoration: none; color: black;" href="#">Khuyến mãi</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-sm-3">
+                    <ul style="list-style-type: none;">
+                        <li><h5 style="text-align: center; font-weight: bold;">CHÍNH SÁCH</h5></li>
+                        <li style="padding-left: 70px;">
+                            &#10157;
+                            <a style="text-decoration: none; color: black;" href="#">Chính sách giao hàng</a>
+                        </li>
+                        <li style="padding-left: 70px;">
+                            &#10157;
+                            <a style="text-decoration: none; color: black;" href="#">Chính sách bảo hành</a>
+                        </li>
+                        <li style="padding-left: 70px;">
+                            &#10157;
+                            <a style="text-decoration: none; color: black;" href="#">Chính sách đổi trả</a>
+                        </li>
+                        <li style="padding-left: 70px;">
+                            &#10157;
+                            <a style="text-decoration: none; color: black;" href="#">Chính sách Vip</a>
+                        </li>
+                        <li style="padding-left: 70px;">
+                            &#10157;
+                            <a style="text-decoration: none; color: black;" href="#">Chính sách bảo mật</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-sm-3">
+                    <ul style="list-style-type: none;">
+                        <li><h5 style="text-align: center; font-weight: bold;">HỖ TRỢ</h5></li>
+                        <li style="padding-left: 80px;">
+                            &#10157;
+                            <a style="text-decoration: none; color: black;" href="#">Kiểm tra đơn hàng</a>
+                        </li>
+                        <li style="padding-left: 80px;">
+                            &#10157;
+                            <a style="text-decoration: none; color: black;" href="#">Hỗ trợ trực tuyến</a>
+                        </li>
+                        <li style="padding-left: 80px;">
+                            &#10157;
+                            <a style="text-decoration: none; color: black;" href="#">Phản ánh</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-3">
+                    <ul style="list-style-type: none;">
+                        <li><h5 style="font-weight: bold;">Pay</h5></li>
+                        <li><img src="~/img/logopayment.jpg" alt=""></li>
+                        <li><h5 style="font-weight: bold;">FOLLOW</h5></li>
+                        <li>
+                            <a class="text-decoration: none; color: black;" href="https://www.facebook.com/profile.php?id=100004120634888"><img src="~/img/logo_fa.jpg" alt=""></a>&nbsp;
+                            <a class="text-decoration: none; color: black;" href="https://www.instagram.com/t.ger_phrey/"><img src="~/img/logo_IG.jpg" alt=""></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <hr style="width: auto; margin: 2px 80px;">
+</body>
+</html>

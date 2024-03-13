@@ -1,0 +1,84 @@
+﻿@model ShopMyNghe.Models.Product
+
+@{
+    ViewBag.Title = "DeleteProduct";
+    Layout = "~/Views/Shared/_Layout4.cshtml";
+}
+
+<div class="container mb-4 mt-2" style="width: 400px;">
+    <h2 class="text-center" style="font-weight: bold; color: rgb(252, 150, 112);">Delete Product</h2>
+
+    <h3 class="text-center" style="font-weight: bold; color: rgb(252, 150, 112);">Are you sure you want to delete this?</h3>
+    <hr />
+    <dl class="dl-horizontal text-center">
+        <dt>
+            @Html.DisplayNameFor(model => model.product_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Images)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Images)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.category_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.category_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.source_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.source_id)
+        </dd>
+
+    </dl>
+
+    <div class="form-group mt-2 text-center">
+        @using (Html.BeginForm("DeleteProduct", "Product", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div>
+                <input type="submit" value="Delete" class="btn" style="background-color: rgb(252, 150, 112); border-radius: 10px;" />
+            </div>
+
+        }
+    </div>
+    <a href="/Home/Index" class="btn" , style="text-align: center; background-color: rgb(252, 150, 112); border-radius: 10px;">Back</a>
+</div>

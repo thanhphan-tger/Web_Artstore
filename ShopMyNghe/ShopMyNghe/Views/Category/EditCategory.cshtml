@@ -1,0 +1,27 @@
+﻿@model ShopMyNghe.Models.Category
+
+@{
+    ViewBag.Title = "EditCategory";
+    Layout = "~/Views/Shared/_Layout4.cshtml";
+}
+
+<div class="container mb-4 mt-2" style="width: 700px;">
+    <h2 class="text-center" style="font-weight: bold; color: rgb(252, 150, 112);">Edit Product</h2>
+    <hr />
+    <form action="/Category/EditCategory/@Model.category_id" method="post">
+        <input type="hidden" name="category_id" value="@Model.category_id" />
+        <div class="row">
+            <div class="col-md-6">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Name" value="@Model.name" />
+            </div>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn m-2" style="text-align: center; background-color: rgb(252, 150, 112); border-radius: 10px;">Save</button>
+        </div>
+    </form>
+    <div>
+        <a href="/Category/Categorylist" class="btn" , style="text-align: center; background-color: rgb(252, 150, 112); border-radius: 10px;">Back</a>
+        @*@Html.ActionLink("Back", "Index", "Home", new { @class="btn", style="text-align: center; background-color: rgb(252, 150, 112); border-radius: 10px;"})*@
+    </div>
+</div>

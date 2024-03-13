@@ -1,0 +1,20 @@
+﻿<style>
+    .col-sm-2:hover .btn {
+        background-color: rgb(200, 100, 50); /* Thay đổi màu nền khi di chuột qua */
+        color: white; /* Thay đổi màu chữ khi di chuột qua */
+        text-decoration: none; /* Bỏ gạch chân khi di chuột qua */
+    }
+</style>
+
+<div class="container-fluid" style="background-color: rgb(252, 150, 112)" @*style="position: -webkit-sticky; position: sticky; top: 0; overflow: hidden; "*@>
+    <div class="row">
+        @foreach (var item in ViewBag.Categories)
+        {
+            <div class="col-sm-2 text-center">
+                @Html.ActionLink((string)item.name, "ProductsByCategory", "Product", new { id = item.category_id }, new { @class = "btn m-1", style = "background-color: rgb(252, 150, 112); font-weight: bold;" })
+            </div>
+        }
+    </div>
+
+    <hr style="width: auto; margin: 0 200px; color: rgb(230, 149, 0);">
+</div>

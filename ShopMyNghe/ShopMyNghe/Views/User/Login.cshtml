@@ -1,0 +1,28 @@
+﻿@model ShopMyNghe.Models.User
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<div class="container mb-5 mt-2" style="width: 330px;">
+    <h2 class="text-center" style="font-weight: bold; color: rgb(252, 150, 112);">Login</h2>
+    <form method="post" action="/User/HandleLogin">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" name="txtEmail" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="txtPass">
+        </div>
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+        <div style=" text-align: center;">
+            <button type="submit" class="btn" style="background-color: rgb(252, 150, 112);">Login</button>
+        </div>
+        @*<h6 style="color: red;">@ViewBag.Err</h6>*@
+    </form>
+</div>

@@ -1,0 +1,76 @@
+﻿@model ShopMyNghe.Models.User
+
+@{
+    ViewBag.Title = "EditUser";
+    Layout = "~/Views/Shared/_Layout4.cshtml";
+}
+
+<div class="container" style="width:226px;">
+    @using (Html.BeginForm("ProcessingEditUser", "User", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+    {
+        <h2 class="text-center mt-3" style="font-weight: bold;">Edit User</h2>
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group mb-2">
+                <label for="exampleInputEmail1" class="mb-1" style="font-weight: bold;">User ID</label>
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.user_id, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.user_id, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group mb-2">
+                <label for="exampleInputEmail1" class="mb-1" style="font-weight: bold;">Name</label>
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.username, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.username, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group mb-2">
+                <label for="exampleInputEmail1" class="mb-1" style="font-weight: bold;">Password</label>
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group mb-2">
+                <label for="exampleInputEmail1" class="mb-1" style="font-weight: bold;">Email</label>
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group mb-2">
+                <label for="exampleInputEmail1" class="mb-1" style="font-weight: bold;">Phone</label>
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.phone, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.phone, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group mb-2">
+                <label for="exampleInputEmail1" class="mb-1" style="font-weight: bold;">Address</label>
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.address, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.address, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group mt-3">
+                <div class="col-md-offset-2 col-md-12 text-center">
+                    <input type="submit" value="Save" class="btn" style="background-color: rgb(252, 150, 112); border-radius: 10px;" />
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<div>
+    @Html.ActionLink("Back", "UserInformation", "User", new { @class = "btn", style = "background-color: rgb(252, 150, 112); border-radius: 10px;" })
+</div>

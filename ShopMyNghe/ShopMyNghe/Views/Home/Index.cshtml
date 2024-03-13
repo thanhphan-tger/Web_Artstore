@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+@using ShopMyNghe.Models;
+@model List<Product>
+
+<div class="container mt-2">
+
+    <h6>Tất cả sản phẩm</h6>
+    <div class="row" style="">
+        @if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+                <div class="col-sm-3 mb-2">
+                    <div class="card" style="height: 100%;">
+                        <img class="w-100" src="~/img/ProIMG/@item.Images" alt="Card image cap" />
+                        <div class="card-body" style="text-align:center;">
+                            <p class="card-text">@item.name</p>
+                            <div style="">
+                                @Html.ActionLink("Chi Tiết", "ProductDetails", "Product", new { id = item.product_id }, new { @class = "btn", style = "background-color: rgb(252, 150, 112); border-radius: 10px;" })
+                                @*<a href="/Cart/AddCart/@item.product_id" class="btn" style="background-color: rgb(252, 150, 112); border-radius: 10px;">Thêm vào giỏ</a>*@
+                                @Html.ActionLink("Thêm vào giỏ", "AddCart", "Cart", new { id = item.product_id }, new { @class = "btn", style = "background-color: rgb(252, 150, 112); border-radius: 10px;" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>

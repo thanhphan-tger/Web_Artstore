@@ -1,0 +1,166 @@
+﻿@model ShopMyNghe.Models.Product
+
+@{
+    ViewBag.Title = "ProductDetails";
+    Layout = "~/Views/Shared/_Layout5.cshtml";
+}
+
+<h2 style="text-align:center;" class="mt-2">Chi Tiết Sản Phẩm</h2>
+
+<div class="container">
+    <div class="table">
+        <div class="row">
+            <div class="col-7">
+                <div class="row">
+                    <div class="col-9">
+                        <dl class="dl-horizontal">
+                            <dd>
+                                <img src="@Url.Content("~/img/ProIMG/" + Model.Images)" style="margin:auto; width: 100%;"/>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="col-3">
+                        <div class="table">
+                            <div class="col-12">
+                                <div class="row">
+                                    <img src="~/img/ProIMG/Nentrangtri.jpg"  />
+                                </div>
+                                <div class="row">
+                                    <img src="~/img/ProIMG/Nentrangtrihoa.png" />
+                                </div>
+                                <div class="row">
+                                    <img src="~/img/ProIMG/Tuongchophongthuy.jpg" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-5">
+                <div class="table">
+                    <div class="row">
+                        <div class="col-6">
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    Mã sản phẩm
+                                </dt>
+                            </dl>
+                        </div>
+                        <div class="col-6">
+                            <dl class="dl-horizontal">
+                                <dd>
+                                    @Html.DisplayFor(model => model.product_id)
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    Tên sản phẩm
+                                </dt>
+                            </dl>
+                        </div>
+                        <div class="col-6">
+                            <dl class="dl-horizontal">
+                                <dd>
+                                    @Html.DisplayFor(model => model.name)
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    Giá
+                                </dt>
+                            </dl>
+                        </div>
+                        <div class="col-6">
+                            <dl class="dl-horizontal">
+                                <dd>
+                                    @String.Format("{0:0,0}", Model.price) $
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    Thông tin
+                                </dt>
+                            </dl>
+                        </div>
+                        <div class="col-6">
+                            <dl class="dl-horizontal">
+                                <dd>
+                                    @Html.DisplayFor(model => model.description)
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    Loại
+                                </dt>
+                            </dl>
+                        </div>
+                        <div class="col-6">
+                            <dl class="dl-horizontal">
+                                <dd>
+                                    @Html.DisplayFor(model => model.Category.name)
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    Xuất xứ
+                                </dt>
+                            </dl>
+                        </div>
+                        <div class="col-6">
+                            <dl class="dl-horizontal">
+                                <dd>
+                                    @Html.DisplayFor(model => model.Source.name)
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <p>
+                            @Html.ActionLink("Back", "ProductsByCategory", "Product", new { id = Model.category_id }, new { @class = "btn", style = "background-color: rgb(252, 150, 112); border-radius: 10px; width: 60px;" })            
+                        </p>
+                    </div>
+                    <div class="row">
+                        <p>
+                            <a href="/Home/Index" class="btn" style="background-color: rgb(252, 150, 112); border-radius: 10px; width: 60px;" id="@Model.product_id"><i class="far fa-heart"></i></a>           
+                        </p>
+                    </div>
+                    <div class="row">
+                        <p>
+                            @Html.ActionLink("Thêm vào giỏ", "AddCart", "Cart", new { id = Model.product_id }, new { @class = "btn", style = "background-color: rgb(252, 150, 112); border-radius: 10px;" })
+                        </p>
+                    </div>
+                    <div class="row">
+                        <p>
+                            @Html.ActionLink("Sửa", "EditProduct", "Product", new { id = Model.product_id }, new { @class = "btn", style = "background-color: rgb(252, 150, 112); border-radius: 10px; width: 60px;" })
+                        </p>
+                    </div>
+                    <div class="row">
+                        <p>
+                            @Html.ActionLink("Xóa", "DeleteProduct", "Product", new { id = Model.product_id }, new { @class = "btn", style = "background-color: rgb(252, 150, 112); border-radius: 10px; width: 60px;" })
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
